@@ -1,36 +1,57 @@
-# Kreditriskmodell — Svenska Bolån
+# Kreditriskmodell — Svenska Lån
 
-Ett maskininlärningsprojekt för att prediktera default(betalnings)-risk på bolån, byggt som ett portföljprojekt för att demonstrera kunskaper inom dataanalys, kreditrisk och Python.
+Ett maskininlärningsprojekt för att förutsäga risken att en låntagare slutar betala, byggt som ett portföljprojekt för att demonstrera kunskaper inom dataanalys, kreditrisk och Python.
 
-## Innehåll
+Projektet innehåller två modeller — en för bolån och en för privatlån — för att visa hur kreditriskbedömning skiljer sig beroende på lånetyp.
+
+---
+
+## Projekt 1 — Bolån
 
 | Fil | Beskrivning |
 |---|---|
-| `bolan_analys.ipynb` | Fullständig analys — EDA, feature engineering, modellträning och validering |
+| `bolan_analys.ipynb` | Analys — EDA, feature engineering, modellträning och validering |
 | `app.ipynb` | Interaktiv kalkylator för riskbedömning i realtid |
 | `bolan_data.csv` | Syntetisk bolånsdata, 10 000 observationer |
 
-## Arbetsflöde
+**Variabler:** lånebelopp, inkomst, skuldkvot, kontantinsats, bostadsort, ränta  
+**Gini-koefficient:** 0.43  
+**Notering:** Bolån har säkerhet (bostaden) vilket ger lägre ränta (2–5%) och annorlunda riskprofil än privatlån
 
-1. **Datainläsning** — 10 000 syntetiska bolån med realistiska korrelationer
-2. **Explorativ analys** — Korrelationsmatris och default-rate per bostadsort
-3. **Feature engineering** — LTI-kvot (lån/inkomst) och månadskostnad
-4. **Modellträning** — Logistisk regression med StandardScaler
+---
+
+## Projekt 2 — Privatlån
+
+| Fil | Beskrivning |
+|---|---|
+| `privatlan_analys.ipynb` | Analys — EDA, feature engineering, modellträning och validering |
+| `privatlan_data.csv` | Syntetisk privatlånsdata, 10 000 observationer |
+
+**Variabler:** lånebelopp, inkomst, ålder, anställningsform, syfte, ränta, amorteringstid, betalningsbörda, skuldsättningsgrad, betalningsanmärkning  
+**Gini-koefficient:** ~0.55  
+**Notering:** Privatlån saknar säkerhet vilket ger högre ränta (4–25%) och gör anställningsform och betalningshistorik till viktigare riskdrivare
+
+---
+
+## Arbetsflöde (båda projekten)
+
+1. **Datainläsning** — syntetisk data, i produktion via BigQuery
+2. **Explorativ analys** — korrelationsmatris och betalningsproblem per grupp
+3. **Feature engineering** — LTI-kvot, månadskostnad, betalningsbörda
+4. **Modellträning** — logistisk regression med `class_weight='balanced'`
 5. **Validering** — Gini-koefficient, ROC-kurva, konfusionsmatris
-6. **Interaktivt verktyg** — Kalkylator för att simulera låntagarprofiler
+6. **Interaktivt verktyg** — kalkylator för att simulera låntagarprofiler (bolån)
 
-## Resultat
-
-- **Gini-koefficient: 0.43** — acceptabel diskrimineringsförmåga för kreditrisk
-- Viktigaste riskdrivare: skuldkvot och lån-till-inkomst-kvot
-- Hög kontantinsats minskar default-risken
+---
 
 ## Tekniker
 
-- Python — pandas, numpy, scikit-learn, matplotlib, seaborn
-- Logistisk regression med standardisering
+- Python — pandas, numpy, scikit-learn, matplotlib, seaborn, ipywidgets
+- Logistisk regression med standardisering och balanserad klassvikt
+- One-hot encoding av kategoriska variabler
 - Utvärdering enligt branschstandard (Gini, AUC, IFRS 9-perspektiv)
-- Interaktivt gränssnitt med ipywidgets
+
+---
 
 ## Kom igång
 
@@ -38,9 +59,11 @@ Ett maskininlärningsprojekt för att prediktera default(betalnings)-risk på bo
 git clone https://github.com/jasmikar/svenska-bolan
 cd svenska-bolan
 pip install -r requirements.txt
-jupyter notebook bolan_analys.ipynb
+jupyter notebook privatlan_analys.ipynb
 ```
+
+---
 
 ## Notering
 
-Datan är syntetisk och genererad för demonstrationssyfte. I produktion ersätts CSV-inläsningen med en BigQuery-koppling mot historisk lånedata.
+All data är syntetisk och genererad för demonstrationssyfte. I produktion ersätts CSV-inläsningen med en BigQuery-koppling och modellerna tränas och driftsätts i Vertex AI på Google Cloud Platform.
