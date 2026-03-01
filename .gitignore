@@ -9,4 +9,3 @@ __pycache__/
 
 # Miljö och Modeller
 .venv/
-*.pkl
