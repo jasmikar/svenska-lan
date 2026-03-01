@@ -1,4 +1,12 @@
+# macOS systemfiler
 .DS_Store
+
+# Python & Jupyter
 .ipynb_checkpoints/
 .jupyter/
+__pycache__/
+*.pyc
+
+# Miljö och Modeller
+.venv/
 *.pkl
