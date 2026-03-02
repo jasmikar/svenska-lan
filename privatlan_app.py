@@ -18,38 +18,7 @@ st.set_page_config(
 # ── CSS ───────────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap');
-
-html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; }
 .stApp { background: #f7f5f2; }
-
-
-
-[data-testid="metric-container"] {
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 20px !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-}
-[data-testid="metric-container"] label {
-    color: #64748b !important;
-    font-size: 0.68rem !important;
-    letter-spacing: 0.1em !important;
-    text-transform: uppercase !important;
-}
-[data-testid="metric-container"] [data-testid="stMetricValue"] {
-    color: #0f172a !important;
-    font-size: 1.9rem !important;
-    font-weight: 600 !important;
-    font-family: 'DM Mono', monospace !important;
-}
-
-h1 { color: #0f172a !important; font-weight: 600 !important; letter-spacing: -0.02em; }
-h2 { color: #334155 !important; font-weight: 500 !important; font-size: 0.85rem !important;
-     letter-spacing: 0.08em; text-transform: uppercase; }
-h3 { color: #475569 !important; }
-
 .stTabs [data-baseweb="tab-list"] {
     background: white;
     border-radius: 10px;
@@ -58,7 +27,6 @@ h3 { color: #475569 !important; }
     border: 1px solid #e2e8f0;
 }
 .stTabs [data-baseweb="tab"] {
-    color: #64748b !important;
     font-size: 0.78rem !important;
     letter-spacing: 0.05em !important;
     text-transform: uppercase !important;
@@ -69,7 +37,6 @@ h3 { color: #475569 !important; }
     background: #0f172a !important;
     color: white !important;
 }
-hr { border-color: #e2e8f0 !important; }
 </style>
 """, unsafe_allow_html=True)
 
