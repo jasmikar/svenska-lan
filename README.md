@@ -43,7 +43,7 @@ Projektet innehåller två modeller — en för bolån och en för privatlån �
 3. **Feature engineering** — LTI-kvot, månadskostnad, betalningsbörda
 4. **Modellträning** — logistisk regression med `class_weight='balanced'`
 5. **Validering** — Gini-koefficient, ROC-kurva, konfusionsmatris
-6. **Interaktivt verktyg** — kalkylator för att simulera låntagarprofiler (bolån)
+6. **Interaktivt verktyg** — kalkylator för att simulera låntagarprofiler
 
 ---
 
