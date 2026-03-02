@@ -16,30 +16,6 @@ st.set_page_config(
 )
 
 # ── CSS ───────────────────────────────────────────────────────────────────────
-st.markdown("""
-<style>
-.stApp { background: #f7f5f2; }
-.stTabs [data-baseweb="tab-list"] {
-    background: white;
-    border-radius: 10px;
-    padding: 4px;
-    gap: 2px;
-    border: 1px solid #e2e8f0;
-}
-.stTabs [data-baseweb="tab"] {
-    font-size: 0.78rem !important;
-    letter-spacing: 0.05em !important;
-    text-transform: uppercase !important;
-    border-radius: 7px !important;
-    padding: 8px 18px !important;
-}
-.stTabs [aria-selected="true"] {
-    background: #0f172a !important;
-    color: white !important;
-}
-</style>
-""", unsafe_allow_html=True)
-
 # ── MPL-tema ──────────────────────────────────────────────────────────────────
 plt.rcParams.update({
     "figure.facecolor": "white",
