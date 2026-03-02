@@ -1,5 +1,7 @@
 # Kreditriskmodell — Svenska Lån
 
+🚀 **[Öppna den interaktiva kalkylatorn](https://svenska-lan-privatlan-kalkylator.streamlit.app/)**
+
 Ett maskininlärningsprojekt för att förutsäga risken att en låntagare slutar betala, byggt som ett portföljprojekt för att demonstrera kunskaper inom dataanalys, kreditrisk och Python.
 
 Projektet innehåller två modeller — en för bolån och en för privatlån — för att visa hur kreditriskbedömning skiljer sig beroende på lånetyp.
@@ -24,7 +26,7 @@ Projektet innehåller två modeller — en för bolån och en för privatlån �
 
 | Fil | Beskrivning |
 |---|---|
-| `privatlan_app.py` | **Streamlit-app:** Interaktiv kalkylator för riskbedömning i realtid |
+| `privatlan_app.py` | **Streamlit-app:** Interaktiv kalkylator — [Öppna live](https://svenska-lan-privatlan-kalkylator.streamlit.app/) |
 | `privatlan_analys.ipynb` | Analys — EDA, feature engineering, modellträning och validering |
 | `privatlan_model.pkl` | Den tränade maskininlärningsmodellen (Logistisk Regression) |
 | `privatlan_scaler.pkl` | Sparad scaler för förbehandling av indata |
@@ -49,10 +51,11 @@ Projektet innehåller två modeller — en för bolån och en för privatlån �
 
 ## Tekniker
 
-- Python — pandas, numpy, scikit-learn, matplotlib, seaborn, ipywidgets
+- Python — pandas, numpy, scikit-learn, matplotlib, seaborn, ipywidgets, streamlit
 - Logistisk regression med standardisering och balanserad klassvikt
 - One-hot encoding av kategoriska variabler
 - Utvärdering enligt branschstandard (Gini, AUC, IFRS 9-perspektiv)
+- Driftsatt som webbapp via Streamlit Cloud
 
 ---
 
@@ -62,6 +65,11 @@ Projektet innehåller två modeller — en för bolån och en för privatlån �
 git clone https://github.com/jasmikar/svenska-lan
 cd svenska-lan
 pip install -r requirements.txt
+
+# Kör Streamlit-appen lokalt
+streamlit run privatlan_app.py
+
+# Eller öppna analysnotebooken
 jupyter notebook privatlan_analys.ipynb
 ```
 
