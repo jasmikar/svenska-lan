@@ -27,7 +27,9 @@ section[data-testid="stSidebar"] {
     background: #1a1a2e !important;
     border-right: none;
 }
-section[data-testid="stSidebar"] * { color: #a8b2d8 !important; }
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] div { color: #a8b2d8; }
 section[data-testid="stSidebar"] h2 {
     color: #e2e8f0 !important;
     font-size: 1rem !important;
